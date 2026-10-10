@@ -94,7 +94,7 @@ h3{font-family:var(--disp);font-weight:800;font-size:22px;line-height:1.2}
 .car{margin-top:8px;display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:18px calc(50% - 105px) 26px;margin-left:-20px;margin-right:-20px;cursor:grab;user-select:none;-webkit-user-select:none}
 .car::-webkit-scrollbar{display:none}
 .car.drag{scroll-snap-type:none;cursor:grabbing}
-.slide{flex:0 0 210px;width:210px;height:210px;scroll-snap-align:center;border-radius:28px;overflow:hidden;transform:scale(.74);opacity:.55;will-change:transform,opacity;box-shadow:0 14px 26px rgba(59,36,18,.24);background:var(--sand2)}
+.slide{flex:0 0 210px;width:210px;height:210px;scroll-snap-align:center;border-radius:28px;overflow:hidden;transform:scale(.74);opacity:1;will-change:transform,opacity;box-shadow:0 14px 26px rgba(59,36,18,.24);background:var(--sand2)}
 .slide img{display:block;width:100%;height:100%;object-fit:cover;pointer-events:none;-webkit-user-drag:none}
 
 /* bottom */
@@ -210,7 +210,7 @@ function upd(){
   slides.forEach(s=>{
     const m=s.offsetLeft+s.offsetWidth/2,d=Math.min(1,Math.abs(c-m)/(s.offsetWidth+6));
     s.style.transform='scale('+(1-0.26*d).toFixed(3)+')';
-    s.style.opacity=(1-0.45*d).toFixed(3);
+    s.style.opacity=1;
   });
 }
 let raf=0;car.addEventListener('scroll',()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(upd)},{passive:true});
